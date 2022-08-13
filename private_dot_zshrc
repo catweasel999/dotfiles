@@ -59,19 +59,6 @@ do
     fi
 done
 
-# if [[ -f ~/.config/proxy.conf ]]; then
-#     source ~/.config/proxy.conf
-# fi
-
-# if [[ -f ~/.config/keychain/keychain.sh ]]; then
-#     source ~/.config/keychain/keychain.sh
-# fi
-
-# if [[ -f ~/.config/ssh-auth/ssh-auth.sh ]]; then
-#     source ~/.config/ssh-auth/ssh-auth.sh
-# fi
-
-
 DOCKERRUNNING=`ps aux | grep dockerd | grep -v grep`
 if [ -z "$DOCKERRUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
@@ -92,7 +79,7 @@ if [[ -d ~/.pyenv ]]; then
 fi
 
 if [[ -f ~/etc/${PROMPT_THEME}.omp.json ]]; then
-    eval "$(oh-my-posh prompt init zsh --config ~/etc/${PROMPT_THEME}.omp.json)"
+    eval "$(oh-my-posh prompt init zsh --config ~/.config/posh/${PROMPT_THEME}.omp.json)"
 fi
 
 if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
