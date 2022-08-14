@@ -13,11 +13,11 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#be9179",
+          "foreground": "#00ff84",
           "template": "@"
         },
         {
-          "foreground": "#98dcfd",
+          "foreground": "#ebd510",
           "style": "plain",
           "template": "{{ .HostName }}<#5e81ac>]</>",
           "type": "session"
@@ -35,7 +35,7 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#00ff84",
+          "foreground": "#74b8fc",
           "template": "{{ if .WSL }}(WSL: {{ .Env.WSL_DISTRO_NAME }}){{ end }}"
         },
         {
@@ -81,7 +81,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#98dcfd",
+          "foreground": "#00ff84",
           "properties": {
             "style": "full"
           },
