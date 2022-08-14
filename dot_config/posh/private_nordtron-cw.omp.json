@@ -7,7 +7,8 @@
         {
           "foreground": "#ebd510",
           "style": "plain",
-          "template": "<#5e81ac>\u250f[</>{{ .UserName }}",
+          "template": "<#5e81ac>\u250f[</><b>{{ .UserName }}</b>",
+          "fontWeight": "bold",
           "type": "session"
         },
         {
@@ -42,7 +43,7 @@
           "type": "text",
           "style": "plain",
           "foreground": "#74b8fc",
-          "template": "{{ if .Env.REMOTE_CONTAINER }} (#f308){{ end }}"
+          "template": "{{ if .Env.REMOTE_CONTAINERS }} in \uf308 {{ end }}"
         },
         {
           "foreground": "#b48ead",
@@ -92,7 +93,7 @@
             "style": "full"
           },
           "style": "plain",
-          "template": "<#5e81ac>\u2516[</>{{ .Path }}<#5e81ac>]</>",
+          "template": "<#5e81ac>\u2516[</>{{ path .Path .Location }}<#5e81ac>]</>",
           "type": "path"
         }
       ],
