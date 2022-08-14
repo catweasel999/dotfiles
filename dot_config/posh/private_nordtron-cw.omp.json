@@ -5,15 +5,27 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#88c0d0",
+          "foreground": "#ebd510",
           "style": "plain",
-          "template": "<#5e81ac>\u250f[</>{{ .UserName }}@{{ .HostName }}<#5e81ac>]</>",
+          "template": "<#5e81ac>\u250f[</>{{ .UserName }}",
+          "type": "session"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#be9179",
+          "template": "@"
+        },
+        {
+          "foreground": "#98dcfd",
+          "style": "plain",
+          "template": "{{ .HostName }}<#5e81ac>]</>",
           "type": "session"
         },
         {
           "type": "os",
           "style": "plain",
-          "foreground": "#26C6DA",
+          "foreground": "#00ff84",
           "template": " {{.Icon}} ",
           "properties": {
             "display_distro_name": false,
@@ -23,7 +35,7 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#3ca966",
+          "foreground": "#00ff84",
           "template": "{{ if .WSL }}(WSL: {{ .Env.WSL_DISTRO_NAME }}){{ end }}"
         },
         {
@@ -69,7 +81,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#88c0d0",
+          "foreground": "#98dcfd",
           "properties": {
             "style": "full"
           },
