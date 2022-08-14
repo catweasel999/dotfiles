@@ -7,7 +7,7 @@
         {
           "foreground": "#ebd510",
           "style": "plain",
-          "template": "<#5e81ac>\u250f[</><b>{{ .UserName }}</b>",
+          "template": "<#5e81ac>\u250f[</>{{ .UserName }}",
           "fontWeight": "bold",
           "type": "session"
         },
@@ -88,12 +88,19 @@
       "newline": true,
       "segments": [
         {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#00ff84",
+          "template": "<#5e81ac>\u2516[</>"
+        },
+        
+        {
           "foreground": "#00ff84",
           "properties": {
             "style": "full"
           },
           "style": "plain",
-          "template": "<#5e81ac>\u2516[</>{{ path .Path .Location }}<#5e81ac>]</>",
+          "template": "{{ path .Path .Location }}<#5e81ac>]</>",
           "type": "path"
         }
       ],
