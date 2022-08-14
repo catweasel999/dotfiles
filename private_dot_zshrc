@@ -78,7 +78,7 @@ if [[ -d ~/.pyenv ]]; then
     fi
 fi
 
-if [[ -f ~/etc/${PROMPT_THEME}.omp.json ]]; then
+if [[ -f ~/.config/posh/${PROMPT_THEME}.omp.json ]]; then
     eval "$(oh-my-posh prompt init zsh --config ~/.config/posh/${PROMPT_THEME}.omp.json)"
 fi
 
