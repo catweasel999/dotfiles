@@ -39,6 +39,12 @@
           "template": "{{ if .WSL }}(WSL: {{ .Env.WSL_DISTRO_NAME }}){{ end }}"
         },
         {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#74b8fc",
+          "template": "{{ if .Env.REMOTE_CONTAINER }} (#f308){{ end }}"
+        },
+        {
           "foreground": "#b48ead",
           "properties": {
             "fetch_stash_count": true,
