@@ -1,0 +1,10 @@
+key.txt.age
+
+{{- if not .containerpublisher }}
+.config/github/CR_PAT
+
+{{- end -}}
+
+{{- if not .wsl }}
+.config/ssh-auth
+{{- end -}}
