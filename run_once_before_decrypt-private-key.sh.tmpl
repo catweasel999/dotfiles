@@ -1,6 +1,7 @@
 #!/bin/sh
+{{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
 
-{{- if .containerpublisher }}
+{{- if $containerpublisher }}
 
 if [ ! -f "$HOME/key.txt" ]; then
     age --decrypt --output "$HOME/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
