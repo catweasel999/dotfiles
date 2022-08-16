@@ -1,6 +1,7 @@
 key.txt.age
+{{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
 
-{{- if not .containerpublisher }}
+{{- if not $containerpublisher }}
 .config/github/CR_PAT
 
 {{- end -}}
