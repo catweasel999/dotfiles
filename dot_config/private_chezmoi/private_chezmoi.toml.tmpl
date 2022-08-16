@@ -4,12 +4,13 @@
 
 
 
+{{- if $containerpublisher }}
 encryption = "age"
 [age]
     identity = "~/key.txt"
     recipient = "age1xpnzrnd62varqf6ztgh2fjsp6748murtmqwvzqsurvmmthje7susgtasvu"
 
-
+{{ end }}
 
 {{- if $vscode }}
 [edit]
