@@ -1,11 +1,12 @@
 key.txt.age
 {{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
+{{- $wsl:= (env "WSL_DISTRO_NAME" | not | not )}}
 
 {{- if not $containerpublisher }}
 .config/github/CR_PAT
 
 {{- end -}}
 
-{{- if not .wsl }}
+{{- if not $wsl }}
 .config/ssh-auth
 {{- end -}}
