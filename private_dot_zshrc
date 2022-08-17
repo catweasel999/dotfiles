@@ -82,8 +82,10 @@ if [[ -d ~/.pyenv ]]; then
     fi
 fi
 
-if [[ -f ~/.config/posh/${PROMPT_THEME}.omp.json ]]; then
-    eval "$(oh-my-posh prompt init zsh --config ~/.config/posh/${PROMPT_THEME}.omp.json)"
+if type 'oh-my-posh' &>/dev/null; then
+    if [[ -f ~/.config/posh/${PROMPT_THEME}.omp.json ]]; then
+        eval "$(oh-my-posh prompt init zsh --config ~/.config/posh/${PROMPT_THEME}.omp.json)"
+    fi
 fi
 
 if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
