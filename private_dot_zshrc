@@ -4,7 +4,7 @@
 # promptinit
 # prompt adam1
 
-PROMPT_THEME=nordtron-cw
+export PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json
 
 setopt histignorealldups sharehistory
 
@@ -59,11 +59,6 @@ do
     fi
 done
 
-DOCKERRUNNING=`ps aux | grep dockerd | grep -v grep`
-if [ -z "$DOCKERRUNNING" ]; then
-    sudo dockerd > /dev/null 2>&1 &
-    disown
-fi
 umask 077
 
 [ -f ~/.config/github/CR_PAT ] && source ~/.config/github/CR_PAT
@@ -83,8 +78,8 @@ if [[ -d ~/.pyenv ]]; then
 fi
 
 if type 'oh-my-posh' &>/dev/null; then
-    if [[ -f ~/.config/posh/${PROMPT_THEME}.omp.json ]]; then
-        eval "$(oh-my-posh prompt init zsh --config ~/.config/posh/${PROMPT_THEME}.omp.json)"
+    if [[ -f ${PROMPT_THEME} ]]; then
+        eval "$(oh-my-posh prompt init zsh --config ${PROMPT_THEME})"
     fi
 fi
 

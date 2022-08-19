@@ -1,5 +1,9 @@
 #!/bin/sh
 {{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
+{{- $vscode:= (lookPath "code" | not | not ) -}}
+{{- $wsl:= (env "WSL_DISTRO_NAME" | not | not )}}
+
+{{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
 
 {{- if $containerpublisher }}
 
