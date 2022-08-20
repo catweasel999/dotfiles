@@ -1,0 +1,9 @@
+[Unit]
+Description=SSH key agent
+[Service]
+Type=forking
+# Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+# SSH_AUTH_SOCK is defined by ~/.config/environment.d/ssh-agent.conf
+ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
+[Install]
+WantedBy=default.target
