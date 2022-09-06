@@ -67,7 +67,7 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-binfolders=( ~/bin ~/.local/bin )
+binfolders=( ~/bin ~/.local/bin ~/.local/share/coursier/bin )
 for i in "${binfolders[@]}"
 do 
     if [[ -d $i ]]; then
@@ -111,6 +111,7 @@ fi
 if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+[ -d ~/.zsh/completion ] && fpath=(~/.zsh/completion $fpath)
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
