@@ -89,6 +89,7 @@ umask 077
 [ -f ~/.config/github/CR_PAT ] && source ~/.config/github/CR_PAT
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
+[ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
 
 if [[ -f ~/.poetry/env ]]; then
     source $HOME/.poetry/env
