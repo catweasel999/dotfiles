@@ -67,7 +67,7 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-binfolders=( ~/bin ~/.local/bin ~/.local/share/coursier/bin )
+binfolders=( ~/bin ~/.local/bin ~/.local/share/coursier/bin ~/opt/idea/bin )
 for i in "${binfolders[@]}"
 do 
     if [[ -d $i ]]; then
