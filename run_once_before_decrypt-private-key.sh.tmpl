@@ -5,7 +5,9 @@
 
 #{{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
 
+set -x
 if [ ! -f "$HOME/.chezmoi_key.txt" ]; then
     age --decrypt --output "$HOME/.chezmoi_key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
     chmod 600 "$HOME/.chezmoi_key.txt"
 fi
+set +x
