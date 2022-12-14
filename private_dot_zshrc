@@ -4,8 +4,6 @@
 # promptinit
 # prompt adam1
 
-export PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json
-
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -62,6 +60,8 @@ setopt HIST_REDUCE_BLANKS
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+plugins=(git zsh-autosuggestions autojump)
+
 
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
@@ -90,6 +90,7 @@ umask 077
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
 [ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
+[ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [[ -f ~/.poetry/env ]]; then
     source $HOME/.poetry/env
@@ -103,16 +104,22 @@ if [[ -d ~/.pyenv ]]; then
     fi
 fi
 
-if type 'oh-my-posh' &>/dev/null; then
-    if [[ -f ${PROMPT_THEME} ]]; then
-        eval "$(oh-my-posh prompt init zsh --config ${PROMPT_THEME})"
+if [ -d $HOME/.oh-my-zsh ]; then
+    export ZSH="$HOME/.oh-my-zsh"
+    ZSH_THEME="robbyrussell"
+    source $ZSH/oh-my-zsh.sh
+else 
+    if type 'oh-my-posh' &>/dev/null; then
+        export PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json
+        if [[ -f ${PROMPT_THEME} ]]; then
+            eval "$(oh-my-posh prompt init zsh --config ${PROMPT_THEME})"
+        fi
     fi
 fi
-
-if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-[ -d ~/.zsh/completion ] && fpath=(~/.zsh/completion $fpath)
+# if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+#     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fi
+# [ -d ~/.zsh/completion ] && fpath=(~/.zsh/completion $fpath)
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
