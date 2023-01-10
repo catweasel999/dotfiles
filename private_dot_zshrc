@@ -1,4 +1,7 @@
 # Set up the prompt
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
+PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json # oh my posh
 
 # autoload -Uz promptinit
 # promptinit
@@ -108,11 +111,9 @@ fi
 
 if [ -d $HOME/.oh-my-zsh ]; then
     export ZSH="$HOME/.oh-my-zsh"
-    ZSH_THEME="robbyrussell"
     source $ZSH/oh-my-zsh.sh
 else 
     if type 'oh-my-posh' &>/dev/null; then
-        export PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json
         if [[ -f ${PROMPT_THEME} ]]; then
             eval "$(oh-my-posh prompt init zsh --config ${PROMPT_THEME})"
         fi
