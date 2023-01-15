@@ -92,9 +92,14 @@ umask 077
 [ -f ~/.config/github/CR_PAT ] && source ~/.config/github/CR_PAT
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
-[ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
+# [ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
 [ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.poetry/env ] && source $HOME/.poetry/env
+
+# rootless docker
+if [[ -f ~/.config/systemd/user/docker.service ]];then
+    export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
+fi
 
 if [[ -d /opt/ros ]]; then
     [ -f /opt/ros/foxy/setup.zsh ] && source /opt/ros/foxy/setup.zsh
