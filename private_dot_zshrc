@@ -89,7 +89,7 @@ done
 
 umask 077
 
-[ -f ~/.config/github/CR_PAT ] && source ~/.config/github/CR_PAT
+[ -f ~/.config/github/cr_pat ] && source ~/.config/github/cr_pat
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
 # [ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
