@@ -92,9 +92,10 @@ umask 077
 [ -f ~/.config/github/cr_pat ] && source ~/.config/github/cr_pat
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
-# [ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
+[ -f ~/.config/containers/podman-service.sh ] && source ~/.config/containers/podman-service.sh
 [ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.poetry/env ] && source $HOME/.poetry/env
+
 
 # rootless docker
 if [[ -f ~/.config/systemd/user/docker.service ]];then
@@ -125,11 +126,6 @@ else
         fi
     fi
 fi
-# if [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-#     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# fi
-# [ -d ~/.zsh/completion ] && fpath=(~/.zsh/completion $fpath)
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
