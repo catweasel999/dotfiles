@@ -3,6 +3,8 @@
 ZSH_THEME="amuse"
 PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json # oh my posh
 
+export LANG=de_DE.UTF-8
+
 # autoload -Uz promptinit
 # promptinit
 # prompt adam1
