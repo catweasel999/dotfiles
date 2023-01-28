@@ -67,11 +67,6 @@ bindkey '\e[B' history-search-forward
 
 plugins=(git zsh-autosuggestions autojump)
 
-
-if [ -f ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
-fi
-
 binfolders=( ~/bin ~/.local/bin ~/.local/share/coursier/bin ~/opt/idea/bin )
 for i in "${binfolders[@]}"
 do 
@@ -122,6 +117,7 @@ fi
 
 if [ -d $HOME/.oh-my-zsh ]; then
     export ZSH="$HOME/.oh-my-zsh"
+    export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
     source $ZSH/oh-my-zsh.sh
 else 
     if type 'oh-my-posh' &>/dev/null; then
@@ -129,6 +125,10 @@ else
             eval "$(oh-my-posh prompt init zsh --config ${PROMPT_THEME})"
         fi
     fi
+fi
+
+if [ -f ~/.zsh_aliases ]; then
+    . ~/.zsh_aliases
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
