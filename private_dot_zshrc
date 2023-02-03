@@ -21,14 +21,11 @@ bindkey -e
 HISTSIZE=1000
 SAVEHIST=1000
 
-if [ -d /commandhistory ]
-then
-    HISTFOLDER=/commandhistory
+if [ -d /commandhistory ]; then
+    HISTFILE=/commandhistory/.zsh_history
 else
-    HISTFOLDER=~
+    HISTFILE=~/.zsh_history
 fi
-
-HISTFILE=$HISTFOLDER/.zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
