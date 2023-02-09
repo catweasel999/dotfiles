@@ -1,8 +1,10 @@
+list_options='--color=auto -h --group-directories-first'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     # alias ls='ls --color=auto'
-    alias ls='ls --color=auto -h --group-directories-first'
+    alias ls="ls $list_options"
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -12,13 +14,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
+alias l="ls -alF $list_options"
+alias la="ls -A $list_options"
 
 alias pip='pip3'
 alias python='python3'
-alias doco='docker-compose'
-alias update='sudo apt-get update && sudo apt-get upgrade -y'
-alias gremlin='gremlin.sh'
