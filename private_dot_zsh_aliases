@@ -19,3 +19,5 @@ alias la="ls -A $list_options"
 
 alias pip='pip3'
 alias python='python3'
+alias wpve='wol 94:C6:91:14:38:DE'
+alias wcmh='wol 00:14:EE:08:E7:2F'
