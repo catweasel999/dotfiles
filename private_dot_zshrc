@@ -116,6 +116,10 @@ if [[ -d /opt/ros ]]; then
     [ -f /opt/ros/humble/setup.zsh ] && source /opt/ros/humble/setup.zsh
     export ROS_DOMAIN_ID=1
 fi
+GAZEBO=/usr/bin/gazebo
+if [[ -f $GAZEBO ]]; then
+    alias gazebo='/usr/bin/env QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=1.0 /usr/bin/gazebo'
+fi
 
 if [[ -d ~/.pyenv ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
