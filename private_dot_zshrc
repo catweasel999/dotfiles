@@ -1,6 +1,10 @@
 # Set up the prompt
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="amuse"
+ZSH_THEME_CUSTOM=catweasel-amuse
+ZSH_THEME_FALLBACK="amuse"
+
+ZSH_THEME=${ZSH_THEME_CUSTOM:-$ZSH_THEME_FALLBACK}
+
 PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json # oh my posh
 
 export LANG=de_DE.UTF-8
