@@ -10,7 +10,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_RUBY_PROMPT_PREFIX="%{$fg_bold[red]%}‹"
 ZSH_THEME_RUBY_PROMPT_SUFFIX="›%{$reset_color%}"
 
-if (($ + WSL_DISTRO_NAME)); then
+if [[ -n $WSL_DISTRO_NAME ]]; then
     PROMPT='%{$fg_bold[blue]%}%M%{$fg_bold[white]%}[%{$fg_bold[cyan]%}${WSL_DISTRO_NAME}%{$fg_bold[white]%}]: %{$fg_bold[green]%} %0~%{$reset_color%}$(git_prompt_info)$(virtualenv_prompt_info) ⌚ %{$fg_bold[red]%}%*%{$reset_color%}
 $ '
 else
