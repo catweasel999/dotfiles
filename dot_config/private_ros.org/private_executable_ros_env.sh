@@ -1,7 +1,7 @@
-INSTALLTYPE=${1:-plain}
-MODELS=udemy_ros2_ws/src/udemy_ros2_pkg/models
+PROJECT=udemy_ros2_ws/src/udemy_ros2_pkg
 
-[ $INSTALLTYPE = "docker" ] && WORKSPACE_FOLDER=/workspace
-[ $INSTALLTYPE = "plain" ] && WORKSPACE_FOLDER=~/source
-
-export IGN_GAZEBO_RESOURCE_PATH=$WORKSPACE_FOLDER/$MODELS
+workspace_candidates=(/workspace ~/source)
+for i in "${workspace_candidates[@]}"; do
+    MODEL_FOLDER=$i/$PROJECT/models
+    [ -d $MODEL_FOLDER ] && export IGN_GAZEBO_RESOURCE_PATH=$MODEL_FOLDER
+done
