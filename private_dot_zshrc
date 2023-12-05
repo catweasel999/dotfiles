@@ -79,7 +79,7 @@ bindkey '\e[B' history-search-forward
 
 plugins=(git zsh-autosuggestions autojump)
 
-binfolders=( ~/bin ~/.local/bin ~/.local/share/coursier/bin ~/opt/idea/bin )
+binfolders=( ~/bin ~/.local/bin )
 for i in "${binfolders[@]}"
 do 
     if [[ -d $i ]]; then

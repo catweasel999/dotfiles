@@ -105,6 +105,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+binfolders=(~/bin ~/.local/bin)
+for i in "${binfolders[@]}"; do
+    if [[ -d $i ]]; then
+        export PATH=$i:$PATH
+    fi
+done
+
 [ -f ~/.config/github/cr_pat ] && source ~/.config/github/cr_pat
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
