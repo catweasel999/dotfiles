@@ -8,7 +8,6 @@ ZSH_THEME=${ZSH_THEME_CUSTOM:-$ZSH_THEME_FALLBACK}
 PROMPT_THEME=~/.config/posh/nordtron-cw.omp.json # oh my posh
 
 export LANG=de_DE.UTF-8
-export QT_SCALE_FACTOR=1.5
 export GDK_SCALE=1.5
 
 
