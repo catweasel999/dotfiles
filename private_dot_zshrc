@@ -115,13 +115,13 @@ if [[ -f ~/.config/systemd/user/docker.service ]];then
     export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
 fi
 
-if [[ -d /opt/ros ]]; then
-    [ -f /opt/ros/foxy/setup.zsh ] && source /opt/ros/foxy/setup.zsh
-    [ -f /opt/ros/humble/setup.zsh ] && source /opt/ros/humble/setup.zsh
-    [ -f /opt/ros/iron/setup.zsh ] && source /opt/ros/iron/setup.zsh
+ROS_ROOT=$/opt/ros/$ROS_DISTRO
+
+if [[ -f $ROS_ROOT/setup.zsh  ]]; then
+    source /opt/ros/foxy/setup.zsh
     eval "$(register-python-argcomplete3 ros2)"
     eval "$(register-python-argcomplete3 colcon)"
-    export ROS_DOMAIN_ID=1
+
 fi
 
 GAZEBO=/usr/bin/gazebo
