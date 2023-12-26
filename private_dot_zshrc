@@ -116,12 +116,14 @@ if [[ -f ~/.config/systemd/user/docker.service ]];then
 fi
 
 ROS_ROOT=$/opt/ros/$ROS_DISTRO
+ROS_SETUP=$ROS_ROOT/setup.zsh
 
-if [[ -f $ROS_ROOT/setup.zsh  ]]; then
-    source /opt/ros/foxy/setup.zsh
+if [[ -f $ROS_SETUP ]]; then
+    source $ROS_SETUP
     eval "$(register-python-argcomplete3 ros2)"
     eval "$(register-python-argcomplete3 colcon)"
-
+else
+    echo "Ros Setup not found: $ROS_SETUP!" 
 fi
 
 GAZEBO=/usr/bin/gazebo
