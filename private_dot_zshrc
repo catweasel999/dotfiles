@@ -87,7 +87,7 @@ do
 done
 
 # define additionalConfigs relative to ~/.config
-additionalConfigs=( proxy.conf  keychain/keychain.sh ssh-auth/ssh-auth.sh ros.org/ros_env.sh )
+additionalConfigs=( proxy.conf  keychain/keychain.sh ssh-auth/ssh-auth.sh)
 for i in "${additionalConfigs[@]}"
 do 
     configFile=~/.config/$i
@@ -115,15 +115,18 @@ if [[ -f ~/.config/systemd/user/docker.service ]];then
     export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
 fi
 
-ROS_ROOT=$/opt/ros/$ROS_DISTRO
-ROS_SETUP=$ROS_ROOT/setup.zsh
 
-if [[ -f $ROS_SETUP ]]; then
-    source $ROS_SETUP
-    eval "$(register-python-argcomplete3 ros2)"
-    eval "$(register-python-argcomplete3 colcon)"
-else
-    echo "Ros Setup not found: $ROS_SETUP!" 
+if [[ ! -z ${ROS_DISTRO} ]];then
+    ROS_ROOT=/opt/ros/$ROS_DISTRO
+    ROS_SETUP=$ROS_ROOT/setup.zsh
+
+    if [[ -f $ROS_SETUP ]]; then
+        source $ROS_SETUP
+        eval "$(register-python-argcomplete3 ros2)"
+        eval "$(register-python-argcomplete3 colcon)"
+    else
+        echo "Ros Setup not found: $ROS_SETUP!" 
+    fi
 fi
 
 GAZEBO=/usr/bin/gazebo
