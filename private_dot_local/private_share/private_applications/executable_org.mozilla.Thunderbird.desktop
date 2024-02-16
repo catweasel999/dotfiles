@@ -1,0 +1,27 @@
+[Desktop Entry]
+Name=Thunderbird
+Comment=Send and receive mail with Thunderbird
+Comment[de]=E-Mails mit Thunderbird senden und empfangen
+GenericName=Mail Client
+
+GenericName[de]=E-Mail-Client
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=thunderbird --file-forwarding org.mozilla.Thunderbird @@u %u @@
+Terminal=false
+Type=Application
+Icon=/home/catweasel/Bilder/icon/org.mozilla.Thunderbird.png
+Categories=Network;Email;
+MimeType=message/rfc822;x-scheme-handler/mailto;text/calendar;text/vcard;text/x-vcard;x-scheme-handler/webcal;x-scheme-handler/webcals;x-scheme-handler/mid;
+StartupNotify=true
+StartupWMClass=thunderbird
+Actions=ComposeMessage;OpenAddressBook;
+X-Flatpak=org.mozilla.Thunderbird
+
+[Desktop Action ComposeMessage]
+Name=Write New Message
+Name[de]=Neue Nachricht verfassen
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=thunderbird org.mozilla.Thunderbird -compose
+
+[Desktop Action OpenAddressBook]
+Name=Open the Address Book
+Name[de]=Adressbuch öffnen
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=thunderbird org.mozilla.Thunderbird -addressbook

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Golden Cheetah
+GenericName=ImageJ
+X-GNOME-FullName=Golden Cheetah
+Comment=Cycling Training
+Type=Application
+Categories=Sport;
+Exec=/home/catweasel/bin/GoldenCheetah_v3.6_x64.AppImage
+TryExec=/home/catweasel/bin/GoldenCheetah_v3.6_x64.AppImage
+Terminal=false
+StartupNotify=true
+Icon=/home/catweasel/Bilder/icon/cheetah-logo.png

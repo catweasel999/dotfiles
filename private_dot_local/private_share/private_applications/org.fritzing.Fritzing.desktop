@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Fritzing AppImage
+GenericName=Electronic Design Automation software
+GenericName[fi]=Elektroniikan suunnitteluohjelma
+GenericName[ru]=Программа проектирования электроники
+Comment=Create circuits and lay out printed circuit boards
+Comment[fi]=Suunnittele elektronisia kytkentöjä ja piirilevyjä
+Comment[ru]=Создавайте схемы и выкладывайте печатные платы
+Exec=/home/catweasel/bin/fritzing %F
+Icon=/home/catweasel/Bilder/icon/fritzing.png
+Terminal=false
+Type=Application
+Categories=Development;IDE;Electronics;
+Keywords=EDA;PCB;prototype;circuit;schematic;
+StartupNotify=true
+MimeType=application/x-fritzing-fz;application/x-fritzing-fzz;application/x-fritzing-fzp;application/x-fritzing-fzpz;application/x-fritzing-fzb;application/x-fritzing-fzbz;application/x-fritzing-fzm;
+StartupWMClass=Fritzing

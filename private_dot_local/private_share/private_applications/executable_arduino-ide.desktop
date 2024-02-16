@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Arduino IDE
+X-GNOME-FullName=Arduino IDE
+Comment=Microcontroller Programming
+Type=Application
+Categories=Electronics;
+Exec=/home/catweasel/bin/arduino-ide
+TryExec=/home/catweasel/bin/arduino-ide
+Terminal=false
+StartupNotify=true
+Icon=/home/catweasel/Bilder/icon/arduino-ide-logo-150x150.png
