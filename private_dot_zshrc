@@ -87,7 +87,7 @@ do
 done
 
 # define additionalConfigs relative to ~/.config
-additionalConfigs=( proxy.conf  keychain/keychain.sh ssh-auth/ssh-auth.sh)
+additionalConfigs=( proxy.conf  keychain/keychain.sh ssh-auth/ssh-auth.sh ros.org/ros_env.sh )
 for i in "${additionalConfigs[@]}"
 do 
     configFile=~/.config/$i
