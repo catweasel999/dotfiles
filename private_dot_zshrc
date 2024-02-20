@@ -160,6 +160,16 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
+PICO_HOME=~/pico
+pico_parts=( pico-sdk pico-examples pico-extras pico-playground )
+for i in "${pico_parts[@]}"
+do 
+    pico_subfolder=$PICO_HOME/$i
+    if [[ -f $pico_subfolder ]]; then
+        export ${pico_subfolder^^}_PATH=$PICO_HOME/$pico_subfolder
+    fi
+done
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
