@@ -166,7 +166,9 @@ for i in "${pico_parts[@]}"
 do
     pico_subfolder=$PICO_HOME/$i
     if [[ -d $pico_subfolder ]]; then
-        export ${i^^}_PATH=$PICO_HOME/$pico_subfolder
+        var=${i//-/_}_PATH
+        var=$(echo "$var" | tr '[:lower:]' '[:upper:]')
+        export ${var}=$pico_subfolder
     fi
 done
 
