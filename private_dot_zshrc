@@ -172,12 +172,6 @@ do
     fi
 done
 
-# for snap apps to be in menu
-if [ -f /etc/profile.d/apps-bin-path.sh ]; then
-    emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
-fi
-
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
