@@ -1,7 +1,20 @@
 # Configure ssh forwarding
 
 # RELAY=~/bin/npiperelay.exe
-RELAY=npiperelay.exe
+
+WINDOWSBIN=~/windows/bin
+
+if [ ! -d $WINDOWSBIN ];then
+    echo "fatal: missing windows bin folder $WINDOWSBIN while creating SSH agent pipe!"
+    exit 1
+fi
+
+RELAY=$WINDOWSBIN/npiperelay.exe
+if [ ! -f $RELAY ];
+    echo "fatal: missing $RELAY while creating SSH agent pipe!"
+    exit 1
+fi
+
 export SSH_AUTH_SOCK=$HOME/bin/agent.sock
 KILL_COMMAND=socat
 
