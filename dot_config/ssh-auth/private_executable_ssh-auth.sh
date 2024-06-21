@@ -10,7 +10,7 @@ if [ ! -d $WINDOWSBIN ];then
 fi
 
 RELAY=$WINDOWSBIN/npiperelay.exe
-if [ ! -f $RELAY ];
+if [ ! -f $RELAY ]; then
     echo "fatal: missing $RELAY while creating SSH agent pipe!"
     exit 1
 fi
