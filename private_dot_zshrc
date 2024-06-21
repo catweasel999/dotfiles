@@ -78,7 +78,7 @@ bindkey '\e[B' history-search-forward
 
 plugins=(git zsh-autosuggestions autojump)
 
-binfolders=( ~/bin ~/.local/bin )
+binfolders=( ~/bin ~/.local/bin /snap/bin )
 for i in "${binfolders[@]}"
 do 
     if [[ -d $i ]]; then
@@ -124,8 +124,8 @@ if [[ ! -z ${ROS_DISTRO} ]];then
         source $ROS_SETUP
         eval "$(register-python-argcomplete3 ros2)"
         eval "$(register-python-argcomplete3 colcon)"
-    else
-        echo "Ros Setup not found: $ROS_SETUP!" 
+    # else
+    #     echo "Ros Setup not found: $ROS_SETUP!" 
     fi
 fi
 
