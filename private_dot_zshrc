@@ -122,8 +122,8 @@ if [[ ! -z ${ROS_DISTRO} ]];then
 
     if [[ -f $ROS_SETUP ]]; then
         source $ROS_SETUP
-        eval "$(register-python-argcomplete3 ros2)"
-        eval "$(register-python-argcomplete3 colcon)"
+        eval "$(register-python-argcomplete ros2)"
+        eval "$(register-python-argcomplete colcon)"
     # else
     #     echo "Ros Setup not found: $ROS_SETUP!" 
     fi
