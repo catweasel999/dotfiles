@@ -171,6 +171,9 @@ do
         export ${var}=$pico_subfolder
     fi
 done
+if [ -d $PICO_HOME ]; then
+    export PICOTOOL_FETCH_FROM_GIT_PATH=$PICO_HOME
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
