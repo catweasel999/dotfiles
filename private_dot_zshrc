@@ -124,6 +124,10 @@ if [[ ! -z ${ROS_DISTRO} ]];then
         source $ROS_SETUP
         eval "$(register-python-argcomplete ros2)"
         eval "$(register-python-argcomplete colcon)"
+        if [[ -v WSL_DISTRO_NAME ]]; then
+        # in wsl is a bug that prevents the ros2cli to start that daemon on demand
+            ros2 daemon start > /dev/null 2>&1
+        fi
     # else
     #     echo "Ros Setup not found: $ROS_SETUP!" 
     fi
