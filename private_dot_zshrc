@@ -115,6 +115,9 @@ if [[ -f ~/.config/systemd/user/docker.service ]];then
     export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
 fi
 
+FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
+[[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
+
 
 if [[ ! -z ${ROS_DISTRO} ]];then
     ROS_ROOT=/opt/ros/$ROS_DISTRO
