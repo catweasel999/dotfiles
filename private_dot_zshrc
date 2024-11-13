@@ -115,6 +115,9 @@ if [[ -f ~/.config/systemd/user/docker.service ]];then
     export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
 fi
 
+FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
+[[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
+
 IDF_PATH=~/esp/esp-idf
 
 [[ -d $IDF_PATH ]] && export IDF_PATH
@@ -127,6 +130,10 @@ if [[ ! -z ${ROS_DISTRO} ]];then
         source $ROS_SETUP
         eval "$(register-python-argcomplete ros2)"
         eval "$(register-python-argcomplete colcon)"
+        if [[ -v WSL_DISTRO_NAME ]]; then
+        # in wsl is a bug that prevents the ros2cli to start that daemon on demand
+            ros2 daemon start > /dev/null 2>&1
+        fi
     # else
     #     echo "Ros Setup not found: $ROS_SETUP!" 
     fi
@@ -174,6 +181,9 @@ do
         export ${var}=$pico_subfolder
     fi
 done
+if [ -d $PICO_HOME ]; then
+    export PICOTOOL_FETCH_FROM_GIT_PATH=$PICO_HOME
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
