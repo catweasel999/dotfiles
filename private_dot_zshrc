@@ -115,6 +115,9 @@ if [[ -f ~/.config/systemd/user/docker.service ]];then
     export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
 fi
 
+IDF_PATH=~/esp/esp-idf
+
+[[ -d $IDF_PATH ]] && export IDF_PATH
 
 if [[ ! -z ${ROS_DISTRO} ]];then
     ROS_ROOT=/opt/ros/$ROS_DISTRO
