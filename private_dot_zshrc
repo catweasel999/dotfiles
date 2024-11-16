@@ -118,10 +118,6 @@ fi
 FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
 [[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
 
-IDF_PATH=~/esp/esp-idf
-
-[[ -d $IDF_PATH ]] && export IDF_PATH
-
 if [[ ! -z ${ROS_DISTRO} ]];then
     ROS_ROOT=/opt/ros/$ROS_DISTRO
     ROS_SETUP=$ROS_ROOT/setup.zsh
