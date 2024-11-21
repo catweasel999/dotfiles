@@ -78,77 +78,21 @@ bindkey '\e[B' history-search-forward
 
 plugins=(git zsh-autosuggestions autojump)
 
-binfolders=( ~/bin ~/.local/bin /snap/bin )
-for i in "${binfolders[@]}"
-do 
-    if [[ -d $i ]]; then
-        export PATH=$i:$PATH
-    fi
-done
-
 # define additionalConfigs relative to ~/.config
-additionalConfigs=( proxy.conf  keychain/keychain.sh ssh-auth/ssh-auth.sh ros.org/ros_env.sh )
-for i in "${additionalConfigs[@]}"
-do 
-    configFile=~/.config/$i
-    if [[ -f $configFile ]]; then
-        source $configFile
-    fi
-done
 
 umask 077
 
-export HOSTNAME=`hostname`
 
 [ -f ~/.config/github/cr_pat ] && source ~/.config/github/cr_pat
 [ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
 [ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
 [ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f ~/.poetry/env ] && source $HOME/.poetry/env
-
-# docker
-
-export DOCKER_BUILDKIT=1
-
-# rootless docker
-if [[ -f ~/.config/systemd/user/docker.service ]];then
-    export DOCKER_HOST=unix:///run/user/`id -u`/docker.sock
-fi
 
 FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
 [[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
 
-if [[ ! -z ${ROS_DISTRO} ]];then
-    ROS_ROOT=/opt/ros/$ROS_DISTRO
-    ROS_SETUP=$ROS_ROOT/setup.zsh
-
-    if [[ -f $ROS_SETUP ]]; then
-        source $ROS_SETUP
-        eval "$(register-python-argcomplete ros2)"
-        eval "$(register-python-argcomplete colcon)"
-        if [[ -v WSL_DISTRO_NAME ]]; then
-        # in wsl is a bug that prevents the ros2cli to start that daemon on demand
-            ros2 daemon start > /dev/null 2>&1
-        fi
-    # else
-    #     echo "Ros Setup not found: $ROS_SETUP!" 
-    fi
-fi
-
-GAZEBO=/usr/bin/gazebo
-if [[ -f $GAZEBO ]]; then
-    alias gazebo='/usr/bin/env QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=1.0 /usr/bin/gazebo'
-fi
 
 [ -n "$DISPLAY" ] && command -v xhost &> /dev/null && xhost +local:docker &> /dev/null
-
-if [[ -d ~/.pyenv ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-    fi
-fi
 
 if [ -d $HOME/.oh-my-zsh ]; then
     export ZSH="$HOME/.oh-my-zsh"
@@ -166,21 +110,5 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-PICO_HOME=~/pico
-pico_parts=( pico-sdk pico-examples pico-extras pico-playground )
-for i in "${pico_parts[@]}"
-do
-    pico_subfolder=$PICO_HOME/$i
-    if [[ -d $pico_subfolder ]]; then
-        var=${i//-/_}_PATH
-        var=$(echo "$var" | tr '[:lower:]' '[:upper:]')
-        export ${var}=$pico_subfolder
-    fi
-done
-if [ -d $PICO_HOME ]; then
-    export PICOTOOL_FETCH_FROM_GIT_PATH=$PICO_HOME
-fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
