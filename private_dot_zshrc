@@ -76,7 +76,7 @@ setopt HIST_REDUCE_BLANKS
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
-plugins=(git zsh-autosuggestions autojump)
+plugins=(git zsh-autosuggestions autojump virtualenv)
 
 # define additionalConfigs relative to ~/.config
 
