@@ -91,6 +91,16 @@ umask 077
 FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
 [[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
 
+if [[ -d ~/.pyenv ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    # This ensures pyenv's shims are at the very beginning of the PATH,
+    # so pyenv can intercept python/pip commands correctly.
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init --path)"
+        eval "$(pyenv init -)" # Optional, but often included for autocompletion
+        eval "$(pyenv virtualenv-init -)" # Optional, for virtualenv integration
+    fi
+fi
 
 [ -n "$DISPLAY" ] && command -v xhost &> /dev/null && xhost +local:docker &> /dev/null
 

@@ -17,13 +17,6 @@ for i in "${binfolders[@]}"; do
     fi
 done
 
-if [[ -d ~/.pyenv ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    if command -v pyenv 1>/dev/null 2>&1; then
-        eval "$(pyenv init --path)"
-    fi
-fi
 
 IDF_PATH_MAYBE=~/esp/esp-idf
 [[ -d $IDF_PATH_MAYBE ]] && export IDF_PATH=$IDF_PATH_MAYBE
