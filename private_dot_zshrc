@@ -73,20 +73,31 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 # removes blank lines from history
 setopt HIST_REDUCE_BLANKS
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
 
-plugins=(git zsh-autosuggestions autojump virtualenv)
+bindkey '[0A' history-substring-search-up
+bindkey '[0B' history-substring-search-down
+
+plugins=(
+    git 
+    zsh-autosuggestions 
+    zsh-syntax-highlighting
+    history-substring-search
+    autojump 
+    virtualenv 
+    command-not-found 
+    copybuffer
+    copyfile
+    copypath
+    cp
+    dircycle
+    kate
+    podman
+    sudo
+    )
 
 # define additionalConfigs relative to ~/.config
 
 umask 077
-
-
-[ -f ~/.config/github/cr_pat ] && source ~/.config/github/cr_pat
-[ -f ~/.config/tags.sh ] && source ~/.config/tags.sh
-[ -f ~/.config/shared_tags.sh ] && source ~/.config/shared_tags.sh
-[ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
 [[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
