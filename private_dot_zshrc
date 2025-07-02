@@ -57,6 +57,10 @@ zstyle ':completion:*' menu select=1
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle :compinstall filename '/home/catweasel/.zshrc'
 
+zstyle :omz:plugins:keychain agents gpg,ssh
+zstyle :omz:plugins:keychain identities id_rsa-dev
+zstyle :omz:plugins:keychain options --quiet
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -84,7 +88,9 @@ plugins=(
     history-substring-search
     autojump 
     virtualenv 
-    command-not-found 
+    command-not-found
+    gpg-agent
+    keychain
     copybuffer
     copyfile
     copypath

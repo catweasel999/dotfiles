@@ -1,6 +1,6 @@
 export HOSTNAME=$(hostname)
 
-additionalConfigs=(proxy.conf keychain/keychain.sh ssh-auth/ssh-auth.sh ros.org/ros_env.sh)
+additionalConfigs=(ros.org/ros_env.sh)
 for i in "${additionalConfigs[@]}"; do
     configFile=~/.config/$i
     if [[ -f $configFile ]]; then
@@ -16,7 +16,6 @@ for i in "${binfolders[@]}"; do
         export PATH=$i:$PATH
     fi
 done
-
 
 IDF_PATH_MAYBE=~/esp/esp-idf
 [[ -d $IDF_PATH_MAYBE ]] && export IDF_PATH=$IDF_PATH_MAYBE

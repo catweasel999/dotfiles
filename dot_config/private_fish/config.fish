@@ -6,4 +6,7 @@ if status is-interactive
 
     alias cl='clear' # clear the terminal
     alias s="sudo"
+
+    bind \ee edit_command_buffer
+    set -gx EDITOR code 
 end
