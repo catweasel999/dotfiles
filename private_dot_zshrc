@@ -114,6 +114,8 @@ if [[ -d ~/.pyenv ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
     # This ensures pyenv's shims are at the very beginning of the PATH,
     # so pyenv can intercept python/pip commands correctly.
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - zsh)"
     if command -v pyenv 1>/dev/null 2>&1; then
         eval "$(pyenv init --path)"
         eval "$(pyenv init -)" # Optional, but often included for autocompletion

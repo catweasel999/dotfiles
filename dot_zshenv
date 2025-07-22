@@ -34,14 +34,14 @@ if [ -d $PICO_HOME ]; then
     export PICOTOOL_FETCH_FROM_GIT_PATH=$PICO_HOME
 fi
 
-# docker
+# # docker
 
-export DOCKER_BUILDKIT=1
+# export DOCKER_BUILDKIT=1
 
-# rootless docker
-if [[ -f ~/.config/systemd/user/docker.service ]]; then
-    export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock
-fi
+# # rootless docker
+# if [[ -f ~/.config/systemd/user/docker.service ]]; then
+#     export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock
+# fi
 
 if [[ ! -z ${ROS_DISTRO} ]]; then
     ROS_ROOT=/opt/ros/$ROS_DISTRO
