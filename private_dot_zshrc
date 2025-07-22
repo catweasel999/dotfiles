@@ -83,10 +83,11 @@ setopt HIST_REDUCE_BLANKS
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 plugins=(
     git 
-    zsh-autosuggestions 
-    zsh-syntax-highlighting
     history-substring-search
     autojump 
     virtualenv 
