@@ -83,8 +83,6 @@ setopt HIST_REDUCE_BLANKS
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 plugins=(
     git 
@@ -103,6 +101,9 @@ plugins=(
     podman
     sudo
     )
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # define additionalConfigs relative to ~/.config
 
