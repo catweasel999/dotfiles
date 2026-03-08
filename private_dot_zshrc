@@ -102,7 +102,6 @@ plugins=(
     sudo
     )
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # define additionalConfigs relative to ~/.config
@@ -138,6 +137,9 @@ else
         fi
     fi
 fi
+
+# Enable syntax highlighting, but always after oh-my-zsh because OMZ initializes the necessarykey bindings!
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
