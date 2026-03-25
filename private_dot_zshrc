@@ -106,9 +106,6 @@ plugins=(
     copypath
     cp
     dircycle
-    kate
-    podman
-    sudo
     )
 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
