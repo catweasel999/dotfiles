@@ -57,18 +57,7 @@ zstyle ':completion:*' menu select=1
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle :compinstall filename '/home/catweasel/.zshrc'
 
-# Dynamische Keychain-Konfiguration (identisch für alle Systeme)
-if [[ -n "$WSL_DISTRO_NAME" ]]; then
-    # WSL-Spezifisch: Nur GPG, SSH kommt über npiperelay
-    zstyle :omz:plugins:keychain agents gpg
-    export SSH_AUTH_SOCK="$HOME/bin/agent.sock"
-else
-    # Natives Linux: Volles Programm
-    zstyle :omz:plugins:keychain agents gpg,ssh
-    zstyle :omz:plugins:keychain identities id_rsa-dev
-fi
 
-zstyle :omz:plugins:keychain options --quiet
 
 autoload -Uz compinit
 compinit
@@ -99,8 +88,6 @@ plugins=(
     autojump 
     virtualenv 
     command-not-found
-    gpg-agent
-    keychain
     copybuffer
     copyfile
     copypath
@@ -113,6 +100,8 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # define additionalConfigs relative to ~/.config
 
 umask 077
+
+
 
 FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
 [[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS
