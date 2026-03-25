@@ -66,8 +66,9 @@ else
     # Natives Linux: Volles Programm
     zstyle :omz:plugins:keychain agents gpg,ssh
     zstyle :omz:plugins:keychain identities id_rsa-dev
-	zstyle :omz:plugins:keychain options --quiet
 fi
+
+zstyle :omz:plugins:keychain options --quiet
 
 autoload -Uz compinit
 compinit
