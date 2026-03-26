@@ -13,19 +13,19 @@ key.txt.age
 {{- end -}}
 
 {{- if ne .chezmoi.os "linux" }}
-.config
+.config/*
 !.config/posh
-!.config/.chezmoi
-.omz
+!.config/chezmoi
+.oh-my-zsh
 .zsh*
 .bash*
 bin/*.sh
 .local/share
-.local/share/chezmoi/run_once_before_decrypt-private-key.sh.tmpl
-!.local/share/chezmoi/
+00-decrypt-key.sh
 {{- end }}
 
 {{- if ne .chezmoi.os "windows" }}
 bin/*.exe
 bin/*.ps1
+00-decrypt-key.ps1
 {{- end }}

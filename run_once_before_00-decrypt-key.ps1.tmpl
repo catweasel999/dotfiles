@@ -1,0 +1,12 @@
+$keyDir = Join-Path {{ .chezmoi.homeDir }} ".config\age"
+$keyFile = Join-Path $keyDir "chezmoi_key.txt"
+$sourceKey = Join-Path "{{ .chezmoi.sourceDir }}" "key.txt.age"
+
+if (-not (Test-Path $keyDir)) {
+    New-Item -ItemType Directory -Force -Path $keyDir
+}
+
+if (-not (Test-Path $keyFile)) {
+    # Hier rufen wir die age.exe auf, die im PATH liegen muss
+    & age --decrypt --output $keyFile $sourceKey
+}

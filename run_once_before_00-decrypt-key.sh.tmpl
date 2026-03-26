@@ -1,0 +1,11 @@
+#!/bin/bash
+# Erstellt den Key-Ordner und entschlüsselt den Key
+KEY_DIR="{{ .chezmoi.homeDir }}/.config/age"
+KEY_FILE="$KEY_DIR/chezmoi_key.txt"
+SOURCE_KEY="{{ .chezmoi.sourceDir }}/key.txt.age"
+
+mkdir -p $KEY_DIR
+if [ ! -f $SOURCE_KEY ]; then
+    age --decrypt --output $KEY_FILE $SOURCE_KEY
+    chmod 600 $KEY_FILE
+fi

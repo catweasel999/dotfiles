@@ -1,11 +1,10 @@
-{{- $containerpublisher:= and (env "CONTAINER_PUBLISHER" | not | not) (lookPath "age" | not | not ) -}}
 {{- $vscode:= (lookPath "code" | not | not ) -}}
 {{- $wsl:= (env "WSL_DISTRO_NAME" | not | not )}}
 
 
 encryption = "age"
 [age]
-    identity = "{{ .chezmoi.homeDir }}/.config/age/chezmoi_key.txt"
+    identity = "~/.config/age/chezmoi_key.txt"
     recipient = "age1xpnzrnd62varqf6ztgh2fjsp6748murtmqwvzqsurvmmthje7susgtasvu"
 
 {{- if $vscode }}
@@ -20,5 +19,4 @@ encryption = "age"
 {{ end }}
 
 [data]
-    containerpublisher = {{ $containerpublisher }}
     wsl = {{ $wsl }}
