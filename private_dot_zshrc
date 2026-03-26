@@ -101,7 +101,10 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 umask 077
 
-
+# Importiere SSH_AUTH_SOCK von systemd, falls vorhanden und nicht bereits gesetzt
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+    export SSH_AUTH_SOCK=$(systemctl --user show-environment | grep ^SSH_AUTH_SOCK= | cut -d= -f2)
+fi
 
 FIX_BOOKMARKS=~/bin/fix-duplicate_bookmarks.py
 [[ -f $FIX_BOOKMARKS ]] && $FIX_BOOKMARKS

@@ -11,3 +11,16 @@ key.txt.age
 {{- if not $wsl }}
 .config/ssh-auth
 {{- end -}}
+
+{{- if ne .chezmoi.os "linux" }}
+.config
+!.config/posh
+.omz
+.zsh*
+.bash*
+bin/*.sh
+.local/share
+!.local/share/chezmoi/
+
+
+{{- end }}
