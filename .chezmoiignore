@@ -15,6 +15,7 @@ key.txt.age
 {{- if ne .chezmoi.os "linux" }}
 .config
 !.config/posh
+!.config/.chezmoi
 .omz
 .zsh*
 .bash*
