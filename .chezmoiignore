@@ -20,6 +20,7 @@ key.txt.age
 .bash*
 bin/*.sh
 .local/share
+.local/share/chezmoi/run_once_before_decrypt-private-key.sh.tmpl
 !.local/share/chezmoi/
 {{- end }}
 
