@@ -21,6 +21,9 @@ key.txt.age
 bin/*.sh
 .local/share
 !.local/share/chezmoi/
+{{- end }}
 
-
+{{- if ne .chezmoi.os "windows" }}
+bin/*.exe
+bin/*.ps1
 {{- end }}
