@@ -3,13 +3,10 @@ key.txt.age
 {{- $vscode:= (lookPath "code" | not | not ) -}}
 {{- $wsl:= (env "WSL_DISTRO_NAME" | not | not )}}
 
-{{- if not $containerpublisher }}
-.config/github/CR_PAT
-
-{{- end -}}
 
 {{- if not $wsl }}
 .config/ssh-auth
+etc/wsl.conf
 {{- end -}}
 
 {{- if ne .chezmoi.os "linux" }}
