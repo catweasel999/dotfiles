@@ -17,8 +17,8 @@ for i in "${binfolders[@]}"; do
     fi
 done
 
-IDF_PATH_MAYBE=~/esp/esp-idf
-[[ -d $IDF_PATH_MAYBE ]] && export IDF_PATH=$IDF_PATH_MAYBE
+# IDF_PATH_MAYBE=~/esp/esp-idf
+# [[ -d $IDF_PATH_MAYBE ]] && export IDF_PATH=$IDF_PATH_MAYBE
 
 PICO_HOME=~/pico
 pico_parts=(pico-sdk pico-examples pico-extras pico-playground)

@@ -24,4 +24,6 @@ alias pa='eval "$(poetry env activate)"'
 alias wpve='wol 94:C6:91:14:38:DE'
 alias wcmh='wol 00:14:EE:08:E7:2F'
 
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
+alias act="source .venv/bin/activate"
+
+alias mine="sudo chown -R $USER:$USER"
