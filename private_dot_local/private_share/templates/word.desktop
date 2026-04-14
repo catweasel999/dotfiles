@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Word Dokument
+... Comment=Dateiname für neues Dokument:
+Type=Link
+URL="~/Vorlagen/Word Document.xlsx"
+Icon=application-msword

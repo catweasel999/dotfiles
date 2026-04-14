@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Excel Mappe
+... Comment=Dateiname für neue Mappe:
+Type=Link
+URL="~/Vorlagen/Excel Mappe.xlsx"
+Icon=application-excel
