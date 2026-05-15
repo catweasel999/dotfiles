@@ -17,13 +17,17 @@ fi
 alias l="ls -alF $list_options"
 alias la="ls -A $list_options"
 
+# Python
+
 alias pip='pip3'
 alias python='python3'
 alias pa='eval "$(poetry env activate)"'
-
-alias wpve='wol 94:C6:91:14:38:DE'
-alias wcmh='wol 00:14:EE:08:E7:2F'
-
 alias act="source .venv/bin/activate"
 
+# wkae on lan
+alias wpve='wol 94:C6:91:14:38:DE'
+
 alias mine="sudo chown -R $USER:$USER"
+
+alias unlock="loginctl unlock-sessions"
+alias plasma="plasmashell --replace &"
